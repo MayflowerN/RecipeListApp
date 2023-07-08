@@ -39,7 +39,7 @@ struct Onboarding_2: View {
                             
                             Text("Browse through a variety of recipes and learn how to cook delicious meals at home!")
                                 .font(
-                                    Font.custom("Poppins", size: 14)
+                                    Font.custom("Poppins-Regular", size: 14)
                                         .weight(.ultraLight)
                                 )
                                 .padding()                                .foregroundColor(.white)
@@ -55,7 +55,7 @@ struct Onboarding_2: View {
                                                    
                                         Text("Get Started")
                                         .font(
-                                            Font.custom("Poppins", size: 14)
+                                            Font.custom("Poppins-Regular", size: 14)
                                                 .weight(.medium)
                                         )
                                         .kerning(0.1)

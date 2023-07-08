@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DataService {
     
@@ -52,7 +53,25 @@ class DataService {
                 // error with getting data
                 print(error)
             }
+        listFonts()
+      
             return [Recipe]()
         }
     }
+
+func listFonts(){
+        for family in UIFont.familyNames {
+           
+            let sName: String = family as String
+            print("family: \(sName)")
+                    
+            for name in UIFont.fontNames(forFamilyName: sName) {
+                print("name: \(name as String)")
+            }
+        }
+    }
+
+
+
+
 
