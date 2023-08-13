@@ -12,6 +12,7 @@ struct Recipe_List_App: App {
     var body: some Scene {
         WindowGroup {
             Onboarding_1()
+                .environmentObject(RecipeModel())
         }
     }
 }

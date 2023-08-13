@@ -4,32 +4,44 @@
 //
 //  Created by Ellie on 7/6/23.
 //
-
 import SwiftUI
 
 struct Onboarding_1: View {
     @State private var isActive: Bool = false
-    
+
     var body: some View {
-        ZStack {
-            VStack {
-                Image("foodbank")
-                    .frame(width: 107, height: 107)
+        GeometryReader { geometry in
+            ZStack {
+                Color(red: 1, green: 0.4, blue: 0).edgesIgnoringSafeArea(.all)
                 
-                Text("Ellie’s Kitchen")
-                    .font(
-                        Font.custom("Poppins-Black", size: 36)
-                            .weight(.bold)
-                    )
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-                    .frame(width: 308, height: 53, alignment: .center)
-                
-                Image("Circularloading")
-                    .frame(width: 48, height: 48)
-                
+                VStack(spacing: 20) {
+                    Spacer().frame(height: geometry.size.height * 0.3)
+                    
+                    Image("foodbank")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geometry.size.width * 0.25)
+                    
+                    Text("YumFinder: Recipe Expedition")
+                        .font(.custom("Poppins-Black", size: min(geometry.size.width * 0.1, 40)))
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
+                        .scaledToFit()
+                        .minimumScaleFactor(0.5) // Adjust the scale factor accordingly
+                        .lineLimit(3) // Optional, you can adjust or remove
+                        .padding(.horizontal, 30)
+                    
+                    Spacer().frame(height: geometry.size.height * 0.3)
+                    
+                    Image("Circularloading")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geometry.size.width * 0.1)
+                    
+                    Spacer().frame(height: geometry.size.height * 0.1)
+                }
             }
-            .edgesIgnoringSafeArea(.all)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     isActive = true
@@ -39,9 +51,6 @@ struct Onboarding_1: View {
                 Onboarding_2()
             }
         }
-        .frame(width: 400, height: 912)
-        .background(Color(red: 1, green: 0.4, blue: 0))
-        .cornerRadius(32)
     }
 }
 
@@ -50,4 +59,3 @@ struct Onboarding_1_Previews: PreviewProvider {
         Onboarding_1()
     }
 }
-
